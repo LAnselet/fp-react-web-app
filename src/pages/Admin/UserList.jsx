@@ -8,6 +8,7 @@ import {
   useUpdateUserMutation,
 } from '../../redux/api/usersApiSlice';
 import Message from '../../components/Message';
+import AdminMenu from './AdminMenu';
 
 const UserList = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
@@ -57,7 +58,6 @@ const UserList = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-semibold mb-4">Users</h1>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -66,7 +66,7 @@ const UserList = () => {
         </Message>
       ) : (
         <div className="flex flex-col md:flex-row">
-          {/* <AdminMenu />*/}
+          <AdminMenu />
           <table className="w-full md:w-4/5 mx-auto">
             <thead>
               <tr>
@@ -74,13 +74,13 @@ const UserList = () => {
                 <th className="px-4 py-2 text-left">NAME</th>
                 <th className="px-4 py-2 text-left">EMAIL</th>
                 <th className="px-4 py-2 text-left">ADMIN</th>
-                <th className="px-4 py-2"></th>
+                <th className="px-4 py-2 text-left"></th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.id}>
-                  <td className="px-4 py-2">{user.id}</td>
+                <tr key={user._id}>
+                  <td className="px-4 py-2">{user._id}</td>
                   <td className="px-4 py-2">
                     {editableUserId === user._id ? (
                       <div className="flex items-center">
