@@ -7,9 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       // '/api/': 'http://localhost:5001',
-      '/api/': 'https://fp-node-server-app.onrender.com',
+      '/api': 'https://fp-node-server-app.onrender.com',
       // '/upload/': 'http://localhost:5001',
-      '/upload/': 'https://fp-node-server-app.onrender.com',
+      '/upload': 'https://fp-node-server-app.onrender.com',
     },
   },
 });
